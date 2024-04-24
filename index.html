@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider </title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: black;
+        }
+        header nav {
+            display: flex;
+            justify-content: space-around;
+            background: yellow;
+            align-items: center;
+            position: fixed;
+            box-shadow: 0 0 5px white;
+            width: 100%;
+            z-index: 5;
+        }
+        ul li a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 19px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+            /* color: #00183a; */
+            transition: .5s;
+            font-weight: 500;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 5px 15px;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            color: white;
+            /* scale: 1.10; */
+            /* background-color: #00183a; */
+            background-color: black;
+            border: 2px solid #fff;
+            /* box-shadow: 0 0 10px black; */
+        }
+
+        ul {
+            display: flex;
+            margin-right: 100px;
+            list-style: none;
+            /* border: 1px solid red; */
+        }
+
+        h1 {
+            margin: 15px 25px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+            margin-left: 80px;
+            font-size: 30px;
+            display: block;
+        }
+
+       
+
+        label #btn,
+        #cancel {
+            position: absolute;
+            font-size: 35px;
+            top: 30px;
+            right: 30px;
+            display: none;
+        }
+
+        #check {
+            display: none;
+        }
+
+        /* slider */
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider {
+            max-width: 600px;
+            margin: auto;
+            border: 3px solid yellow;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .slider img {
+            display: none;
+        }
+
+        .slider img:first-child {
+            display: block;
+        }
+        .btns{
+            display: flex;
+            /* border: 1px solid yellow; */
+            max-width: 45%;
+            margin:  auto;
+            justify-content: space-between;
+        }
+
+        .btns button{
+            width: 150px;
+            height: 50px;
+            border-radius: 16px;
+            border: none;
+            font-size: 20px;
+            background-color: yellow;
+            font-weight: 700;
+            transition: .8s;
+        }
+        .btns button:hover{
+            background-color: black;
+            color: white;
+            border: 1px solid white ;
+        }
+
+
+        @media screen and (max-width: 800px) {
+            ul {
+                top: 0px;
+                position: fixed;
+                width: 50%;
+                height: 100vh;
+                background: yellow;
+                display: block;
+                right: -100%;
+                transition: 1s;
+                padding-top: 50px;
+
+            }
+
+            ul li a {
+                margin: 20px 20px;
+                border: 1px solid black;
+            }
+
+            ul li a:hover {
+                background-color: black;
+                scale: 1;
+                margin-left: -10px;
+            }
+
+            
+
+            label #btn {
+                display: inline-block;
+                color: black;
+                margin-top: -10px;
+            }
+
+            #check:checked~ul {
+                right: -100px;
+            }
+
+            #check:checked~label #btn {
+                display: none;
+            }
+
+            #check:checked~label #cancel {
+                display: block;
+                color: black;
+                z-index: 1;
+                margin-top: -10px;
+            }
+
+            header {
+                position: relative;
+                z-index: 5;
+            }
+
+            nav h1 {
+                margin-left: -50px;
+            }
+            /* slider */
+
+            .slider{
+                width: 90%;
+            }
+
+            /* btns */
+
+            .btns{
+                max-width: 70%;
+            }
+            .btns button{
+                width: 100px;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            ul {
+                position: fixed;
+                width: 50%;
+                height: 100vh;
+                background: yellow;
+                display: block;
+                right: -100%;
+                transition: 1s;
+            }
+
+            #h1 {
+                margin-left: 0px;
+            }
+
+            label #btn {
+                display: inline-block;
+                margin-top: -15px;
+                color: black;
+            }
+
+            #check:checked~ul {
+                right: -100px;
+            }
+
+            #check:checked~label #btn {
+                display: none;
+
+            }
+
+            #check:checked~label #cancel {
+                display: block;
+                color: black;
+                z-index: 1;
+                margin-top: -15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1 id="h1"><span>Javohir Coder</span> </h1>
+
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class='bx bx-menu' id="btn"></i>
+                <i class='bx bx-x' id="cancel"></i>
+            </label>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#proekt">Project</a></li>
+                <li><a href="#aloqa">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <br><br><br><br><br><br>
+
+    <div class="slider">
+        <div class="slider-img">
+            <img src="https://cdn-ru.bitrix24.ru/b13797914/landing/3fd/3fdccf2ec2625a6d2d87429a6ac3f7d1/EaKEstDVAAIwU4e.jpg-large_1x.jpg"
+                alt="">
+            <img src="https://deveducation.com/wp-content/uploads/2022/06/0be86fd2-98f4-4dc4-97a5-0d4cb4986a82.webp"
+                alt="">
+            <img src="https://russianstoday.ru/wp-content/uploads/2019/12/0_ibc53UU407xQTevE.jpg" alt="">
+            <img src="https://imarticus.org/blog/wp-content/uploads/2020/11/dsp.jpg" alt="">
+            <img src="https://static.mk.ru/upload/entities/2023/04/27/09/articles/facebookPicture/9f/36/22/03/6e165772cd72233003bdd3e955eac03c.jpg"
+                alt="">
+            <img src="https://www.rstradehouse.com/pr_img/1002110015/20210303/62200339/e142bbba4cebcecf44f8b036d90527f3.jpg"
+                alt="">
+        </div>
+    </div>
+    <br>
+    <div class="btns">
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+    </div>
+
+
+    <script src="js.js"></script>
+</body>
+
+</html>
